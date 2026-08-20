@@ -34,7 +34,6 @@ void eliminarLista(Lista *lista)
 
 void insertarFinal(Lista *lista,void *dato)
 {
-	Nodo *aux;
 	if(!lista->inicio)
 	{
 		lista->inicio = lista->fin = crearNodo(dato);
