@@ -1,0 +1,83 @@
+#include "Lista.h"
+
+void imprimirLista(Lista lista,fn_imprimir imprimir)
+{
+	Nodo *aux;
+	if(!lista.inicio)
+	{
+		printf("\n Lista vacia");
+		return;
+	}	
+	printf("\n [CANT %d]Lista: ",lista.cant);
+	aux = lista.inicio;
+	while( aux )
+	{
+		imprimir(aux->dato);
+		printf(" -> ");
+		aux = aux->sig;
+	}
+}
+
+void eliminarLista(Lista *lista)
+{
+	if( !lista->inicio) return;
+	Nodo *aux;
+	while( lista->inicio)
+	{
+		aux = lista->inicio;
+		lista->inicio = lista->inicio->sig;
+		free(aux);
+	}
+	lista->fin = lista->inicio;
+	lista->cant = 0;
+}
+
+void insertarFinal(Lista *lista,void *dato)
+{
+	Nodo *aux;
+	if(!lista->inicio)
+	{
+		lista->inicio = lista->fin = crearNodo(dato);
+		lista->cant++;
+		return;
+	}
+	lista->fin->sig = crearNodo(dato);
+	lista->fin = lista->fin->sig;
+	lista->cant++;
+}
+
+void eliminarDato(Lista *lista,void *dato,fn_comparar comparar)
+{	
+	if(!lista->inicio)
+		return;
+	
+	for(Nodo *ant=NULL,*elim=lista->inicio ; elim ; ant = elim , elim = elim->sig)
+	{
+		if( comparar( dato , elim->dato ) == 0)
+		{
+			if( lista->inicio == elim)
+				lista->inicio = elim->sig;
+			else
+				ant->sig = elim->sig;
+			if( lista->fin == elim)
+				lista->fin = ant;
+			free(elim);
+			lista->cant--;
+			return;
+		}
+	}	
+}
+
+int buscarDato(Lista lista,void *dato,fn_comparar comparar)
+{
+	if(!lista.inicio)
+		return 0;
+	while(lista.inicio)
+	{
+		if(comparar( dato, lista.inicio->dato ) == 0)
+			return 1;
+		lista.inicio = lista.inicio->sig;
+	}
+	
+	return 0;
+}
