@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <Lista.h>
+
 int compararInt(void*,void*);
 int compararChar(void*,void*);
 int compararCadena(void*,void*);
@@ -11,44 +12,30 @@ void imprimirCadena(void*);
 
 int main(void)
 {	
-	int arreglo[5] = {1,2,3,4,5};
-	char *palabras[5] = {"Hola","Pepe","Computadora","Palabra","Palacios"};
-	Lista lista,listaB;
-	listaB.inicio = lista.inicio = NULL;
-	listaB.fin =lista.fin = NULL;
-	listaB.cant = lista.cant = 0;
-	int dato = 6;
-	int res;
+	int arreglo[5] = {9,7,5,3,1};
+	int aux[5] = {10,8,6,4,2};
+	Lista lista  = inicializarLista();	
 	for(int i = 0; i<5 ; i++)
-	{
 		insertarFinal( &lista , &arreglo[i] );
-		insertarFinal( &listaB , palabras[i] );
-	}
-	imprimirLista(lista,imprimirInt);
-	imprimirLista(listaB,imprimirCadena);	
-	res =  buscarDato(listaB,"Palacios",compararCadena);
-	printf("\n %s %s en la listaB","Palacios", (res)? "existe":"no existe");
-	res =  buscarDato(listaB,"Jeronimo",compararCadena);
-	printf("\n %s %s en la listaB","Jeronimo", (res)? "existe":"no existe");
-	insertarFinal(&listaB,"Alberto");
-	eliminarDato(&listaB,"Palabra",compararCadena);
-	imprimirLista(listaB,imprimirCadena);	
-	eliminarDato(&listaB,"Hola",compararCadena);
-	imprimirLista(listaB,imprimirCadena);	
-	eliminarDato(&listaB,"Alberto",compararCadena);
-	imprimirLista(listaB,imprimirCadena);	
 	
-	
-	res =  buscarDato(lista,&dato,compararInt);	
-	res =  buscarDato(lista,&dato,compararChar);
-	printf("\n %d %s en la lista",dato, (res)? "existe":"no existe");
-	dato = 2;	
-	res =  buscarDato(lista,&dato,compararInt);
-	printf("\n %d %s en la lista",dato, (res)? "existe":"no existe");	
-	eliminarLista(&lista);
 	imprimirLista(lista,imprimirInt);	
-	res =  buscarDato(lista,&dato,compararInt);
-	printf("\n %d %s en la lista",dato, (res)? "existe":"no existe");
+	ordenarLista(&lista,compararInt,ASCENDENTE);
+	imprimirLista(lista,imprimirInt);
+	ordenarLista(&lista,compararInt,DESCENDENTE);
+	imprimirLista(lista,imprimirInt);
+	ordenarLista(&lista,compararInt,ASCENDENTE);	
+	imprimirLista(lista,imprimirInt);
+	
+	for(int i = 0; i<5 ; i++)
+		insertarFinal( &lista , &aux[i] );
+	
+	imprimirLista(lista,imprimirInt);	
+	ordenarLista(&lista,compararInt,ASCENDENTE);
+	imprimirLista(lista,imprimirInt);
+	ordenarLista(&lista,compararInt,DESCENDENTE);
+	imprimirLista(lista,imprimirInt);
+	ordenarLista(&lista,compararInt,ASCENDENTE);	
+	imprimirLista(lista,imprimirInt);
 	
 	printf("\n\n FIN DE PROGRAMA :)\n");
 	return 0;

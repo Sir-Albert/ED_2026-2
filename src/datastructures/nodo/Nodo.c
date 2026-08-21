@@ -6,3 +6,10 @@ Nodo* crearNodo(void *dato)
 	nuevo->dato = dato;
 	return nuevo;
 }
+
+void swapNodo(Nodo *a,Nodo *b)
+{
+	void *aux = a->dato;
+	a->dato = b->dato;
+	b->dato = aux;
+}

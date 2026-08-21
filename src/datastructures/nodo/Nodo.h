@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 
+typedef void (*fn_free)(void*);
 typedef int (*fn_comparar)(void*,void*);
 typedef void (*fn_imprimir)(void*);
 
@@ -20,5 +21,5 @@ typedef struct nodo
 }Nodo;
 
 Nodo* crearNodo(void *dato);
-
+void swapNodo(Nodo*,Nodo*);
 #endif

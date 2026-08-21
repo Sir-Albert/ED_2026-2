@@ -1,5 +1,10 @@
 #include "Lista.h"
 
+Lista inicializarLista(void)
+{
+	return (Lista){.inicio=NULL,.fin=NULL,.cant=0,.orden=NINGUNO};
+}
+
 void imprimirLista(Lista lista,fn_imprimir imprimir)
 {
 	Nodo *aux;
@@ -8,7 +13,7 @@ void imprimirLista(Lista lista,fn_imprimir imprimir)
 		printf("\n Lista vacia");
 		return;
 	}	
-	printf("\n [CANT %d]Lista: ",lista.cant);
+	printf("\n [CANT %llu]Lista: ",lista.cant);
 	aux = lista.inicio;
 	while( aux )
 	{
@@ -79,4 +84,24 @@ int buscarDato(Lista lista,void *dato,fn_comparar comparar)
 	}
 	
 	return 0;
+}
+
+void ordenarLista(Lista *lista,fn_comparar comparar,Orden orden)
+{
+	lista->orden = orden;
+	if(orden == NINGUNO)
+		return;
+	for( Nodo *i = lista->inicio ; i ; i = i->sig)
+	{
+		Nodo *cmp = i;
+		for( Nodo *j = i->sig ; j ; j = j->sig)
+		{
+			if(orden == ASCENDENTE && comparar(cmp->dato,j->dato)>0)
+				cmp = j;
+			else if(orden == DESCENDENTE && comparar(cmp->dato,j->dato)<0)
+				cmp = j;			
+		}
+		if(cmp!=i)
+			swapNodo(i,cmp);
+	}
 }
