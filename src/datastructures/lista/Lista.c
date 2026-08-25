@@ -5,6 +5,9 @@ Lista inicializarLista(void)
 	return (Lista){.inicio=NULL,.fin=NULL,.cant=0,.orden=NINGUNO};
 }
 
+
+
+
 void imprimirLista(Lista lista,fn_imprimir imprimir)
 {
 	Nodo *aux;
@@ -13,17 +16,17 @@ void imprimirLista(Lista lista,fn_imprimir imprimir)
 		printf("\n Lista vacia");
 		return;
 	}	
-	printf("\n [CANT %llu]Lista: ",lista.cant);
+	printf("\n [CANT %u]Lista: \n",lista.cant);
 	aux = lista.inicio;
 	while( aux )
 	{
 		imprimir(aux->dato);
-		printf(" -> ");
+		printf("\n");
 		aux = aux->sig;
 	}
 }
 
-void eliminarLista(Lista *lista)
+void eliminarLista(Lista *lista,fn_free liberar)
 {
 	if( !lista->inicio) return;
 	Nodo *aux;
@@ -31,6 +34,8 @@ void eliminarLista(Lista *lista)
 	{
 		aux = lista->inicio;
 		lista->inicio = lista->inicio->sig;
+		if(liberar)
+			liberar(aux->dato);
 		free(aux);
 	}
 	lista->fin = lista->inicio;
@@ -88,6 +93,7 @@ int buscarDato(Lista lista,void *dato,fn_comparar comparar)
 
 void ordenarLista(Lista *lista,fn_comparar comparar,Orden orden)
 {
+	lista->comparar = comparar;
 	lista->orden = orden;
 	if(orden == NINGUNO)
 		return;
