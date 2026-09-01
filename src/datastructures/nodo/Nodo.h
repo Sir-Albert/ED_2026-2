@@ -20,6 +20,16 @@ typedef struct nodo
 	struct nodo *sig;
 }Nodo;
 
+typedef struct nodod
+{
+	void *dato;
+	struct nodod *sig;
+	struct nodod *ant;
+}Nodod;
+
+
 Nodo* crearNodo(void *dato);
+Nodod* crearNodod(void *dato);
 void swapNodo(Nodo*,Nodo*);
+void swapNodod(Nodod*,Nodod*);
 #endif
