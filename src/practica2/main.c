@@ -64,6 +64,8 @@ int main(void)
         default:
                 break;
         }
+		printf("\n\nENTER PARA CONTINUAR...");
+		clear_buffer();
     }
     printf("\n FIN DE PROGRAMA \n\r");
     return 0;
