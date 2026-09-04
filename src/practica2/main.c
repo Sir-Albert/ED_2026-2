@@ -9,10 +9,9 @@
 int main(void)
 {
     int option,corre_programa;
-	char c;
-    corre_programa=1;
-
-
+  
+	Canciones canciones = cargarCanciones();
+	corre_programa=1;
     while(corre_programa)
     {
         printf("\n\r");
@@ -28,7 +27,7 @@ int main(void)
 
         printf("\n\r Escoge opcion: ");
         scanf("%d",&option);
-		while( (c=getchar())!='\n' && c!=EOF);
+		clear_buffer();
 		switch(option)
         {
         case 0:
@@ -44,6 +43,7 @@ int main(void)
                 break;
         case 3:
                 //SE MUESTRA UN MENU CON LAS CANCIONES DISPONIBLES
+				imprimirCanciones(canciones);
                 //SE SELECCIONA LA CANCION
                 //SE MUESTRA LA COLA DE REPRODUCCION
                 //SE SELECCIONA EN QUE POSICION DE LA COLA SE AGREGARA

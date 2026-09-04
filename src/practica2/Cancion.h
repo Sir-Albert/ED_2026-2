@@ -13,5 +13,16 @@ typedef struct
     short int release_date;
 }Cancion;
 
+typedef struct
+{
+	Cancion *cancion;
+	size_t cant;
+}Canciones;
+
+
+Canciones cargarCanciones(void); 
+void imprimirCanciones(Canciones);
+void imprimirCancion(void*);
+void imprimirNombre(void*);
 
 #endif
