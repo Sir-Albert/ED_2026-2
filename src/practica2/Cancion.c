@@ -6,7 +6,8 @@ Canciones cargarCanciones(void)
 	static Cancion biblioteca[] = 
 	{
 		(Cancion){"Despacito","Luis Fonsi",2017},
-		(Cancion){"Gangnam Style","PSY",2012}		
+		(Cancion){"Gangnam Style","PSY",2012},
+		(Cancion){"Fein","Travis Scott",2023}	
 	};	
 	static Canciones canciones;
 	canciones.cancion = biblioteca;
