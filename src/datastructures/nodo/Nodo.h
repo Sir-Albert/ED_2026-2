@@ -29,7 +29,7 @@ typedef struct nodod
 
 
 Nodo* crearNodo(void *dato);
-Nodod* crearNodod(void *dato);
 void swapNodo(Nodo*,Nodo*);
+Nodod* crearNodod(void *dato);
 void swapNodod(Nodod*,Nodod*);
 #endif

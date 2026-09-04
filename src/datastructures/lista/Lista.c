@@ -5,9 +5,6 @@ Lista inicializarLista(void)
 	return (Lista){.inicio=NULL,.fin=NULL,.cant=0,.orden=NINGUNO};
 }
 
-
-
-
 void imprimirLista(Lista lista,fn_imprimir imprimir)
 {
 	Nodo *aux;
