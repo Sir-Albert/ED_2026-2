@@ -1,6 +1,7 @@
 #ifndef COLA_H
 #define COLA_H
 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <Nodo.h>

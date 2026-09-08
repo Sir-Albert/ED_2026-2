@@ -2,7 +2,8 @@
 #define NODO_H
 
 #include <stdlib.h>
-
+#define TRUE 1
+#define FALSE 0
 typedef void (*fn_free)(void*);
 typedef int (*fn_comparar)(void*,void*);
 typedef void (*fn_imprimir)(void*);
