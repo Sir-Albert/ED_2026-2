@@ -22,6 +22,7 @@ int main(void)
 	imprimirPila(pila,imprimir);
 	eliminarPila(&pila,NULL);
 	imprimirCola(cola,imprimir);
+	imprimirCola(cola,imprimir);
 	eliminarCola(&cola,NULL);
 	
 	
