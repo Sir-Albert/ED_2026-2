@@ -30,7 +30,6 @@ int main(void)
 	
 	
 	
-	
 	imprimirLab(lab);
 	liberarLaberinto(lab);
 	eliminarPila(pila,free);
