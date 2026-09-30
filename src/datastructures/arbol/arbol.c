@@ -22,10 +22,11 @@ size_t altura(Arbol arbol)
 
 size_t alturaI(Arbol arbol)
 {
-	if (!arbol.raiz)
-		return 0;
-
 	size_t max_altura = 0;
+	
+	if (!arbol.raiz)
+		return max_altura;
+
 	Pila pila = inicializarPila(-1);
 	Nodoa *actual = arbol.raiz;
 	Nodoa *ultimo_visitado = NULL;

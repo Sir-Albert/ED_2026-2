@@ -15,6 +15,7 @@ int main(void)
 	raiz->dch->izq =  crearNodoa(NULL);
 	raiz->dch->izq->dch =  crearNodoa(NULL);
 	raiz->dch->izq->dch->izq =  crearNodoa(NULL);
+	raiz->dch->izq->dch->izq->izq  =  crearNodoa(NULL);
 	Arbol arbol;
 	arbol.raiz = raiz;
 	printf("\n Altura %d", altura(arbol));
