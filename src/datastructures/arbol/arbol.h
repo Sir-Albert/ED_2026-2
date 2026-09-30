@@ -13,6 +13,7 @@ typedef struct
 }Arbol;
 
 size_t altura(Arbol);
+size_t alturaI(Arbol);
 
 
 

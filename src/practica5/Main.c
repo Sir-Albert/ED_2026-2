@@ -18,6 +18,7 @@ int main(void)
 	Arbol arbol;
 	arbol.raiz = raiz;
 	printf("\n Altura %d", altura(arbol));
+	printf("\n Altura %d", alturaI(arbol));
     printf("\n\n FIN DE PROGRAMA\n\n");
     return 0;
 }
