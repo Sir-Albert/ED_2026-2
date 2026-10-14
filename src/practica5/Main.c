@@ -29,7 +29,7 @@ int main(void)
 	imprimirOrden(arbol,imprimir,POSTORDEN);
 	
 	
-	printf("\n Arbol");
+	printf("\n Arbol\n");
 	imprimirArbol(arbol,imprimir);
     printf("\n\n FIN DE PROGRAMA\n\n");
     return 0;
