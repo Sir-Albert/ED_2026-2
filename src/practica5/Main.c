@@ -27,6 +27,10 @@ int main(void)
 	imprimirOrden(arbol,imprimir,ORDEN);
 	printf("\n POSTORDEN");
 	imprimirOrden(arbol,imprimir,POSTORDEN);
+	
+	
+	printf("\n Arbol");
+	imprimirArbol(arbol,imprimir);
     printf("\n\n FIN DE PROGRAMA\n\n");
     return 0;
 }
@@ -38,6 +42,7 @@ int *crearEntero(int num)
 	*dato = num;
 	return dato;
 }
+
 void imprimir(void *dato)
 {
 	printf("%d",*(int*)dato);

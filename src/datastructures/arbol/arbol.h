@@ -17,12 +17,13 @@
 typedef struct
 {
 	Nodoa *raiz;
-	size_t cant;	
+	size_t cant;
+	Orden orden;
 }Arbol;
 
 size_t altura(Arbol);
 size_t alturaI(Arbol);
 void imprimirOrden(Arbol arbol,fn_imprimir,int opcion);
-
+void imprimirArbol(Arbol arbol,fn_imprimir imprimir);
 
 #endif

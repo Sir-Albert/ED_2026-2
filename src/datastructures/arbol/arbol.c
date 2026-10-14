@@ -222,3 +222,51 @@ void imprimirOrden(Arbol arbol,fn_imprimir imprimir,int opcion)
 			break;
 	}
 }
+
+
+
+
+void imprimir_arbol(Nodoa* nodo, int nivel,fn_imprimir imprimir)
+{
+    int i;
+    if (nodo != NULL)
+        {
+        printf(" ");
+		imprimir(nodo->dato);
+        if(nodo->dch)
+        {
+            printf("\n");
+            for (i = 0; i < nivel+1; i++)
+            {
+                if(i==nivel)
+                    printf(" |____R ");
+                else
+                    printf(" |      ");
+            }
+            imprimir_arbol(nodo->dch, nivel + 1,imprimir);
+        }
+        if(nodo->izq)
+        {
+            printf("\n");
+            for (i = 0; i < nivel+1; i++)
+            {
+                printf(" |      ");
+                //printf(" |      ");
+            }
+            printf("\n");
+            for (i = 0; i < nivel+1; i++)
+            {
+                if(i==nivel)
+                    printf(" |____L ");
+                else
+                    printf(" |      ");
+            }
+            imprimir_arbol(nodo->izq, nivel + 1,imprimir);
+        }
+    }
+}
+
+void imprimirArbol(Arbol arbol,fn_imprimir imprimir)
+{
+	imprimir_arbol(arbol.raiz,0,imprimir);
+}
