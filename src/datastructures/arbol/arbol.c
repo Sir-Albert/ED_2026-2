@@ -230,7 +230,7 @@ void imprimir_arbol(Nodoa* nodo, int nivel,fn_imprimir imprimir)
 {
     int i;
     if (nodo != NULL)
-        {
+    {
         printf(" ");
 		imprimir(nodo->dato);
         if(nodo->dch)
