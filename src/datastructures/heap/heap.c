@@ -75,8 +75,8 @@ void heapmax(Heap *heap)
 			if(mayor<heap->cant/2)
 				push(&pila,&arrNum[mayor]);
 		}
-		
 	}
+	free(arrNum);
 	
 	
 }
