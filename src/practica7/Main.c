@@ -11,14 +11,14 @@ void imprimir(void*);
 
 int main(void)
 {
-	Heap heap = {NULL,0,HEAPMAX,compararEntero};
+	Heap heap = {NULL,0,HEAPMIN,compararEntero};
 	int array[11] =  { 3, 5, 8, 10, 17, 11, 13, 19, 22, 24, 29};
 	for(int i=0;i<11;i++)
 	{
 		insertarHeap(&heap,&array[i]);
 	}
 	imprimirHeap(&heap,imprimir);
-	heapmax(&heap);
+	heapify_up(&heap);
 	imprimirHeap(&heap,imprimir);
 	
 	printf("\n\n FIN DE PROGRAMA\n\n");

@@ -25,5 +25,7 @@ void insertarHeap(Heap*,void*);
 void* removerHeap(Heap*);
 void imprimirHeap(Heap*,fn_imprimir);
 
-void heapmax(Heap *heap);
+void intercambio(Heap*,Pila,int*);
+void heapify_up(Heap *);
+void heapify_down(Heap *);
 #endif
