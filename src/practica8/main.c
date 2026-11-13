@@ -33,7 +33,7 @@ int main(void)
 		imprimirLibro(acervo.libros+i);
 		fn_insertKey(&tablahash,acervo.libros+i);		
 	}
-
+	remap(&tablahash);
 
 	printf("\nTABLA");
 	for(int i = 0; i < tablahash.len ; i++)
@@ -44,7 +44,15 @@ int main(void)
 			imprimirLibro(tablahash.table[i]);			
 		}
 	}
-
+	
+	tablahash.verbose = 1;
+	Libro libro = {"","Dracula","",0,0};
+	Libro *aqui = fn_searchKey(&tablahash,&libro);
+	if(aqui)
+	{
+		printf("\n LIBRO ENCONTRADO:");
+		imprimirLibro(aqui);
+	}
 	printf("\n\n FIN DE PROGRAMA\n");
 	
 	
